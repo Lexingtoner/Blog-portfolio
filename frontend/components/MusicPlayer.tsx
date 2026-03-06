@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react'; 
 
 export const MusicPlayer: React.FC = () => {
     const audioRef = useRef<HTMLAudioElement>(null);
@@ -111,6 +111,6 @@ export const MusicPlayer: React.FC = () => {
                 />
                 <span className="text-sm text-gray-400 w-8">{volume}%</span>
             </div>
-        </div>
+        </div> 
     );
 };
