@@ -96,6 +96,6 @@ export function Discord() {
                     </p>
                 </div>
             </div>
-        </div>
+        </div> 
     );
 }
