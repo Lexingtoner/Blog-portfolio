@@ -83,6 +83,95 @@ portfolio-blog/
 
 ### Установка и запуск
 
+
+## ⚙️ Быстрая установка (без Docker)
+
+### 1. Клонируем репозиторий
+
+```bash
+git clone https://github.com/username/portfolio-blog.git
+cd portfolio-blog
+```
+
+### 2. Установка зависимостей
+
+```bash
+npm install
+```
+
+Это установит зависимости для корневого проекта и обоих workspaces (frontend и backend).
+
+### 3. Настройка переменных окружения
+
+**Для backend (создать `backend/.env`):**
+
+```bash
+cp backend/.env.example backend/.env
+```
+
+Отредактируйте `backend/.env`:
+
+```env
+PORT=3001
+NODE_ENV=development
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=password
+DB_NAME=portfolio_blog
+JWT_SECRET=your-secret-key-change-in-production
+CORS_ORIGIN=http://localhost:3001
+```
+
+**Для frontend (создать `frontend/.env.local`):**
+
+```bash
+cp frontend/.env.example frontend/.env.local
+```
+
+Отредактируйте `frontend/.env.local`:
+
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_key
+CLERK_SECRET_KEY=your_clerk_secret
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+### 4. Настройка базы данных
+
+Убедитесь, что PostgreSQL установлена и запущена:
+
+```bash
+# Linux/Mac
+brew services start postgresql
+
+# Windows
+# Запустите PostgreSQL из Services или используйте Docker
+```
+
+Создайте базу данных:
+
+```bash
+psql -U postgres -c "CREATE DATABASE portfolio_blog;"
+```
+
+### 5. Запуск приложения
+
+```bash
+# Запуск фронтенда и бэкенда одновременно
+npm run dev
+
+# Или отдельно:
+npm run frontend:dev    # Frontend: http://localhost:3000
+npm run backend:dev     # Backend: http://localhost:3001
+```
+
+Откройте браузер:
+
+- 🎨 Frontend: <http://localhost:3000>
+- 📚 API Docs: <http://localhost:3001/api/docs>
+
+
 1. **Клонируем репозиторий**
 
 ```bash
